@@ -1,0 +1,87 @@
+
+
+NET i_CLK		LOC = P14;
+
+NET "o_VGA_blue0"	LOC = P1;	# VG5
+NET "o_VGA_blue1"	LOC = P140;	# VG6
+NET "o_VGA_green0"	LOC = P139;	# VG3
+NET "o_VGA_green1"	LOC = P138;	# VG4
+NET "o_VGA_red0"	LOC = P137;	# VG1
+NET "o_VGA_red1"	LOC = P132;	# VG2
+NET "o_VGA_vsync"	LOC = P127;
+NET "o_VGA_hsync"	LOC = P131;
+
+NET "o_MMC_SCK"		LOC = P144;
+NET "i_MMC_DO"		LOC = P143;
+NET "o_MMC_DI"		LOC = P142;
+NET "o_MMC_CS"		LOC = P141;
+
+NET o_PSCLK		LOC = P133;
+NET o_LEDData		LOC = P16;
+NET o_LEDLatch		LOC = P15;
+NET o_DIPLatch		LOC = P2;
+NET i_DIPData		LOC = P134;
+NET o_SEGData		LOC = P7;
+NET o_SEGLatch		LOC = P8;
+NET o_LCDData		LOC = P5;
+NET o_LCDLatch		LOC = P6;
+
+NET "o_TXD1"		LOC = P10;
+NET "i_RXD1"		LOC = P9;
+NET "o_TXD2"		LOC = P12;
+NET "i_RXD2"		LOC = P11;
+
+NET o_Eth_RST		LOC = P17;
+NET i_Eth_INT		LOC = P21;
+NET o_Eth_CS		LOC = P22;
+NET o_Eth_RD		LOC = P23;
+NET o_Eth_WR		LOC = P24;
+
+NET o_USB_SLRD		LOC = P26;
+NET o_USB_SLWR		LOC = P27;
+NET io_USB_IFCLK	LOC = P29;
+
+NET io_MuxEthUSB[0]	LOC = P43; # Eth_A0 , FIFOADR0
+NET io_MuxEthUSB[1]	LOC = P41; # Eth_A1 , FIFOADR1
+NET io_MuxEthUSB[2]	LOC = P44; # Eth_A2 , USB_FLAGA
+NET io_MuxEthUSB[3]	LOC = P30; # Eth_A3 , USB_FLAGD
+NET io_MuxEthUSB[4]	LOC = P45; # Eth_A4
+NET io_MuxEthUSB[5]	LOC = P32; # Eth_A5
+NET io_MuxEthUSB[6]	LOC = P33; # Eth_A6
+NET io_MuxEthUSB[7]	LOC = P34; # Eth_A7
+NET io_MuxEthUSB[8]	LOC = P35; # Eth_A8 , USB_PKTEND
+NET io_MuxEthUSB[9]	LOC = P40; # Eth_A9
+NET o_USB_SLOE		LOC = P46;
+NET i_SYS_RESET		LOC = P47;
+
+NET io_Data[0]		LOC = P56; # Eth_D0 , USB_FD0
+NET io_Data[1]		LOC = P57; # Eth_D1 , USB_FD1
+NET io_Data[2]		LOC = P58; # Eth_D2 , USB_FD2
+NET io_Data[3]		LOC = P59; # Eth_D3 , USB_FD3
+NET io_Data[4]		LOC = P55; # Eth_D4 , USB_FD4
+NET io_Data[5]		LOC = P51; # Eth_D5 , USB_FD5
+NET io_Data[6]		LOC = P50; # Eth_D6 , USB_FD6
+NET io_Data[7]		LOC = P48; # Eth_D7 , USB_FD7
+NET "i_CLK" TNM_NET = i_CLK;
+TIMESPEC TS_i_CLK = PERIOD "i_CLK" 50 MHz HIGH 50%;
+PIN "clk_generator/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+#pin2ucf - Thu Nov 03 21:53:32 2016
+#The following constraints were newly added
+NET "io_Data<7>" LOC = P48;
+NET "io_MuxEthUSB<0>" LOC = P43;
+NET "io_MuxEthUSB<1>" LOC = P41;
+NET "io_MuxEthUSB<2>" LOC = P44;
+NET "io_MuxEthUSB<3>" LOC = P30;
+NET "io_Data<0>" LOC = P56;
+NET "io_MuxEthUSB<4>" LOC = P45;
+NET "io_Data<1>" LOC = P57;
+NET "io_MuxEthUSB<5>" LOC = P32;
+NET "io_Data<2>" LOC = P58;
+NET "io_MuxEthUSB<6>" LOC = P33;
+NET "io_Data<3>" LOC = P59;
+NET "io_MuxEthUSB<7>" LOC = P34;
+NET "io_Data<4>" LOC = P55;
+NET "io_MuxEthUSB<8>" LOC = P35;
+NET "io_Data<5>" LOC = P51;
+NET "io_MuxEthUSB<9>" LOC = P40;
+NET "io_Data<6>" LOC = P50;
