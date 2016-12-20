@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 
 
-module deBounce(i_reset,i_inc,i_clk,i_pc,o_pc);
+module deBounce(i_reset,i_inc,i_clk,i_pc,o_pc
+,i_isTakenJump,i_jumpAddr);
 input i_reset,i_clk,i_inc;
 input[7:0]i_pc;
 output reg [7:0] o_pc;
@@ -15,6 +16,10 @@ reg [31:0] counter1_inc;
 reg [31:0] counter2_inc;
 reg flag1_inc;
 reg flag2_inc;
+
+//////////////
+input i_isTakenJump;
+input[7:0] i_jumpAddr;
 
 
 initial 
@@ -102,7 +107,16 @@ begin
 		end
 		if(flag1_inc && flag2_inc)
 			begin 
-				o_pc = i_pc + 1;
+				if(i_isTakenJump == 1)
+				begin 
+					o_pc = i_jumpAddr;
+				end
+				else
+				begin 
+					o_pc = i_pc + 1;
+				end
+				///
+				
 				flag1_inc = 0;
 				flag2_inc = 0;
 			end
@@ -112,14 +126,16 @@ begin
 		if(flag1_reset && flag2_reset)
 			begin 
 				o_pc = 0;
+				
+				///
+				
 				flag1_reset = 0;
 				flag2_reset = 0;
 			end
 			else
-			o_pc = i_pc;	
+			o_pc = i_pc;
 
-
-			
+			///			
 end
 
 
